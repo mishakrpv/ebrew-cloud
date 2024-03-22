@@ -9,7 +9,7 @@ public sealed class ApiKey
         Description = description;
     }
 
-    public string Id { get; } = Guid.NewGuid().ToString().Replace('-', '\0');
+    public string Id { get; } = Guid.NewGuid().ToString().Replace("-", "");
     
     private string UserId { get; } = null!;
     
