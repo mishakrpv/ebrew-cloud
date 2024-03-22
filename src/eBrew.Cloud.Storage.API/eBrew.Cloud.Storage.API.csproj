@@ -5,7 +5,7 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
-
+    
     <ItemGroup>
       <ProjectReference Include="..\eBrew.Cloud.ServiceDefaults\eBrew.Cloud.ServiceDefaults.csproj" />
       <ProjectReference Include="..\eBrew.Cloud.Storage.DataAccess.Impl\eBrew.Cloud.Storage.DataAccess.Impl.csproj" />
@@ -13,18 +13,22 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Infrastructure\ServiceInterfaces\" />
-      <Folder Include="Infrastructure\ServiceResults\" />
-      <Folder Include="Infrastructure\Services\" />
-      <Folder Include="Proto\" />
-    </ItemGroup>
-
-    <ItemGroup>
+      <PackageReference Include="Ardalis.Result" />
       <PackageReference Include="Aspire.Npgsql.EntityFrameworkCore.PostgreSQL" />
+      <PackageReference Include="Google.Protobuf" />
+      <PackageReference Include="Grpc.Net.Client" />
+      <PackageReference Include="Grpc.Tools">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
       <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" >
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Protobuf Include="..\eBrew.Cloud.KeyManagement.API\Proto\keymanagement.proto" GrpcServices="Client" />
     </ItemGroup>
 
 </Project>

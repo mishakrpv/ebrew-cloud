@@ -13,7 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\eBrew.Cloud.KeyManagement.API\eBrew.Cloud.KeyManagement.API.csproj" />
     <ProjectReference Include="..\eBrew.Cloud.Storage.API\eBrew.Cloud.Storage.API.csproj" />
+    <ProjectReference Include="..\eBrew.Cloud.WebApp\eBrew.Cloud.WebApp.csproj" />
   </ItemGroup>
 
   <ItemGroup>

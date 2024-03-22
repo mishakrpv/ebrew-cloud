@@ -33,9 +33,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.Packages.props = Directory.Packages.props
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api Key Management Service", "Api Key Management Service", "{EB05F5DC-A8E1-4E36-9156-11AABB8EE070}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Key Management Service", "Key Management Service", "{EB05F5DC-A8E1-4E36-9156-11AABB8EE070}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eBrew.Cloud.ApiKeyManagement.API", "src\eBrew.Cloud.ApiKeyManagement.API\eBrew.Cloud.ApiKeyManagement.API.csproj", "{91BCBF73-886C-4593-8900-9CA364F32E73}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eBrew.Cloud.KeyManagement.API", "src\eBrew.Cloud.KeyManagement.API\eBrew.Cloud.KeyManagement.API.csproj", "{91BCBF73-886C-4593-8900-9CA364F32E73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eBrew.Cloud.KeyManagement.Infrastructure", "src\eBrew.Cloud.KeyManagement.Infrastructure\eBrew.Cloud.KeyManagement.Infrastructure.csproj", "{B90BCF74-3EBF-4200-A734-929AD4A5833C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eBrew.Cloud.KeyManagement.Application", "src\eBrew.Cloud.KeyManagement.Application\eBrew.Cloud.KeyManagement.Application.csproj", "{83BF4D39-BA8B-41B0-8C67-F986AA72577F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eBrew.Cloud.KeyManagement.Entities", "src\eBrew.Cloud.KeyManagement.Entities\eBrew.Cloud.KeyManagement.Entities.csproj", "{D0049E6F-C5D3-4358-89ED-A30F03CC5E67}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,6 +89,18 @@ Global
 		{91BCBF73-886C-4593-8900-9CA364F32E73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91BCBF73-886C-4593-8900-9CA364F32E73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91BCBF73-886C-4593-8900-9CA364F32E73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B90BCF74-3EBF-4200-A734-929AD4A5833C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B90BCF74-3EBF-4200-A734-929AD4A5833C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B90BCF74-3EBF-4200-A734-929AD4A5833C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B90BCF74-3EBF-4200-A734-929AD4A5833C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83BF4D39-BA8B-41B0-8C67-F986AA72577F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83BF4D39-BA8B-41B0-8C67-F986AA72577F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83BF4D39-BA8B-41B0-8C67-F986AA72577F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83BF4D39-BA8B-41B0-8C67-F986AA72577F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0049E6F-C5D3-4358-89ED-A30F03CC5E67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0049E6F-C5D3-4358-89ED-A30F03CC5E67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0049E6F-C5D3-4358-89ED-A30F03CC5E67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0049E6F-C5D3-4358-89ED-A30F03CC5E67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -103,5 +121,8 @@ Global
 		{95EAE299-50DE-4A63-BF61-605855634D86} = {D9C1838C-7511-45F8-95F9-1DFE553DD231}
 		{EB05F5DC-A8E1-4E36-9156-11AABB8EE070} = {D9C1838C-7511-45F8-95F9-1DFE553DD231}
 		{91BCBF73-886C-4593-8900-9CA364F32E73} = {EB05F5DC-A8E1-4E36-9156-11AABB8EE070}
+		{B90BCF74-3EBF-4200-A734-929AD4A5833C} = {EB05F5DC-A8E1-4E36-9156-11AABB8EE070}
+		{83BF4D39-BA8B-41B0-8C67-F986AA72577F} = {EB05F5DC-A8E1-4E36-9156-11AABB8EE070}
+		{D0049E6F-C5D3-4358-89ED-A30F03CC5E67} = {EB05F5DC-A8E1-4E36-9156-11AABB8EE070}
 	EndGlobalSection
 EndGlobal

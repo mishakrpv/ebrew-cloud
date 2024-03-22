@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "eBrew.Cloud.KeyManagement.API.Grpc";
+
+package KeyManagementApi;
+
+service KeyManagement {
+  rpc AuthorizeApiKey(AuthorizeRequest) returns (AuthorizeResponse) {}
+}
+
+message AuthorizeRequest {
+  string key = 1;
+}
+
+message AuthorizeResponse {
+  string userId = 1;
+  bool succeeded = 2;
+}
