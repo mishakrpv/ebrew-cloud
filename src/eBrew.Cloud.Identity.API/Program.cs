@@ -1,7 +1,5 @@
 using Microsoft.AspNetCore.Identity;
 using eBrew.Cloud.Identity.API.Data;
-using eBrew.Cloud.Identity.API.Extensions;
-using eBrew.Cloud.Identity.API.Model;
 using eBrew.Cloud.ServiceDefaults;
 
 var builder = WebApplication.CreateBuilder(args);
