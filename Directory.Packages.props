@@ -2,6 +2,7 @@
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
+    <DuendeVersion>7.0.3</DuendeVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="Ardalis.Result" Version="8.0.0" />
@@ -13,10 +14,11 @@
     <PackageVersion Include="MediatR" Version="12.2.0" />
     <PackageVersion Include="MediatR.Contracts" Version="2.0.1" />
     <PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.17" />
+    <PackageVersion Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.3" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.3" />
     <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="8.1.0" />
     <PackageVersion Include="Microsoft.Extensions.ServiceDiscovery" Version="8.0.0-preview.3.24105.21" />
-    <PackageVersion Include="Microsoft.IdentityModel.JsonWebTokens" Version="7.0.0" />
+    <PackageVersion Include="Microsoft.IdentityModel.JsonWebTokens" Version="7.0.3" />
     <PackageVersion Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.7.0" />
     <PackageVersion Include="OpenTelemetry.Extensions.Hosting" Version="1.7.0" />
     <PackageVersion Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.6.0-beta.2" />
@@ -32,5 +34,11 @@
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.3" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="8.0.3" />
     <PackageVersion Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.2" />
+    <PackageVersion Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.2" />
+    <PackageVersion Include="Duende.IdentityServer" Version="$(DuendeVersion)" />
+    <PackageVersion Include="Duende.IdentityServer.AspNetIdentity" Version="$(DuendeVersion)" />
+    <PackageVersion Include="Duende.IdentityServer.EntityFramework" Version="$(DuendeVersion)" />
+    <PackageVersion Include="Duende.IdentityServer.EntityFramework.Storage" Version="$(DuendeVersion)" />
+    <PackageVersion Include="Duende.IdentityServer.Storage" Version="$(DuendeVersion)" />
   </ItemGroup>
 </Project>
