@@ -27,4 +27,9 @@
       <ProjectReference Include="..\eBrew.Cloud.ServiceDefaults\eBrew.Cloud.ServiceDefaults.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+        <Compile Include="..\eBrew.Cloud.Shared\MigrateDbContextExtensions.cs" Link="Extensions\MigrateDbContextExtensions.cs" />
+        <Compile Include="..\eBrew.Cloud.Shared\ActivityExtensions.cs" Link="Extensions\ActivityExtensions.cs" />
+    </ItemGroup>
+
 </Project>

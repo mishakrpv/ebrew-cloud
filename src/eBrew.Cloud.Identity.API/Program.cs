@@ -1,5 +1,7 @@
+using eBrew.Cloud.Identity.API;
 using Microsoft.AspNetCore.Identity;
 using eBrew.Cloud.Identity.API.Data;
+using eBrew.Cloud.Identity.API.Model;
 using eBrew.Cloud.ServiceDefaults;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,7 +10,11 @@ builder.AddServiceDefaults();
 
 builder.AddNpgsqlDbContext<IdentityContext>("identitydb");
 
-builder.Services.AddDefaultIdentity<IdentityUser>()
+builder.Services.AddMigration<IdentityContext, UserSeed>();
+
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .AddDefaultUI()
+    .AddDefaultTokenProviders()
     .AddEntityFrameworkStores<IdentityContext>();
 
 builder.Services.Configure<IdentityOptions>(options =>
@@ -25,7 +31,12 @@ builder.Services.AddIdentityServer(options =>
     options.Events.RaiseInformationEvents = true;
     options.Events.RaiseFailureEvents = true;
     options.Events.RaiseSuccessEvents = true;
-});
+    
+    // Not recomended for production
+    options.KeyManagement.Enabled = false;
+})
+    // Not recomended for production
+    .AddDeveloperSigningCredential();
 
 builder.Services.AddRazorPages();
 

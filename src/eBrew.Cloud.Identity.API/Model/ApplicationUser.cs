@@ -2,4 +2,4 @@
 
 namespace eBrew.Cloud.Identity.API.Model;
 
-public class ApplicationUser : IdentityUser { }
+public sealed class ApplicationUser : IdentityUser { }
