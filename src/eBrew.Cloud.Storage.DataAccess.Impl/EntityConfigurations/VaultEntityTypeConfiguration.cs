@@ -12,5 +12,8 @@ public sealed class VaultEntityTypeConfiguration : IEntityTypeConfiguration<Vaul
         
         builder.Property(v => v.Name)
             .HasMaxLength(100);
+
+        builder.Property(v => v.Description)
+            .HasMaxLength(300);
     }
 }

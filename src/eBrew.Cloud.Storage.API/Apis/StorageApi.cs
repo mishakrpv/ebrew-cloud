@@ -1,4 +1,6 @@
-﻿using eBrew.Cloud.Storage.API.DependencyInjection;
+﻿using System.ComponentModel.DataAnnotations;
+using eBrew.Cloud.Storage.API.DependencyInjection;
+using eBrew.Cloud.Storage.API.Dto;
 using eBrew.Cloud.Storage.Model;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
@@ -17,11 +19,11 @@ public static class StorageApi
         
         return app;
     }
-
+    
     public static async Task<Results<Ok, ForbidHttpResult>> CreateVault(
         [AsParameters] StorageServices services,
         [FromHeader(Name = "x-apikey")] string accessKey,
-        string name)
+        [FromBody] VaultDTO vaultDto)
     {
         var result = await services.KeyManager.AuthorizeKeyAsync(accessKey);
         
@@ -30,8 +32,8 @@ public static class StorageApi
             return TypedResults.Forbid();
         }
         
-        await services.Repository.CreateVaultAsync(new Vault(result.Value, name));
-        services.Logger.LogInformation($"Vault for user {result.Value} with name {name} was created.");
+        await services.Repository.CreateVaultAsync(new Vault(result.Value, vaultDto.Name, vaultDto.Description));
+        services.Logger.LogInformation($"Vault for user {result.Value} with name {vaultDto.Name} was created.");
         
         return TypedResults.Ok();
     }

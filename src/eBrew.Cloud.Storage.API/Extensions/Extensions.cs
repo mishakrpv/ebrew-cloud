@@ -1,4 +1,6 @@
 ﻿using eBrew.Cloud.ServiceDefaults;
+using eBrew.Cloud.Storage.API.Infrastructure.ServiceInterfaces;
+using eBrew.Cloud.Storage.API.Infrastructure.Services;
 using eBrew.Cloud.Storage.DataAccess.Impl;
 using eBrew.Cloud.Storage.DataAccess.Impl.Repositories;
 using eBrew.Cloud.Storage.DataAccess.Interfaces.Repositories;
@@ -12,6 +14,8 @@ public static class Extensions
         builder.AddDefaultAuthentication();
         
         builder.AddNpgsqlDbContext<StorageContext>("storagedb");
+
+        builder.Services.AddSingleton<IKeyManagementService, GrpcKeyManagementService>();
 
         builder.Services.AddScoped<IVaultRepository, EFVaultRepository>();
     }

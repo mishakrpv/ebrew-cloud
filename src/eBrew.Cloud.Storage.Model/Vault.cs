@@ -1,10 +1,12 @@
 ﻿namespace eBrew.Cloud.Storage.Model;
 
-public sealed class Vault(string userId, string name)
+public sealed class Vault(string userId, string name, string? description)
 {
     public string UserId { get; } = userId;
 
     public string Name { get; set; } = name;
+
+    public string? Description { get; set; } = description;
     
     private List<Secret> _secrets = [];
 
