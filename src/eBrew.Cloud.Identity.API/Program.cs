@@ -1,3 +1,4 @@
+using Duende.IdentityServer.Models;
 using eBrew.Cloud.Identity.API;
 using Microsoft.AspNetCore.Identity;
 using eBrew.Cloud.Identity.API.Data;
@@ -8,9 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
 
-builder.AddNpgsqlDbContext<IdentityContext>("identitydb");
+builder.AddNpgsqlDbContext<IdentityContext>("identitydb", 
+    static settings => { });
 
-builder.Services.AddMigration<IdentityContext, UserSeed>();
+// builder.Services.AddMigration<IdentityContext, UserSeed>();
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddDefaultUI()
@@ -18,25 +20,23 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<IdentityContext>();
 
 builder.Services.Configure<IdentityOptions>(options =>
-{
-    
-});
+    {
+
+    });
 
 builder.Services.AddIdentityServer(options =>
-{
-    options.IssuerUri = "null";
-    options.Authentication.CookieLifetime = TimeSpan.FromHours(2);
-
-    options.Events.RaiseErrorEvents = true;
-    options.Events.RaiseInformationEvents = true;
-    options.Events.RaiseFailureEvents = true;
-    options.Events.RaiseSuccessEvents = true;
-    
-    // Not recomended for production
-    options.KeyManagement.Enabled = false;
-})
-    // Not recomended for production
-    .AddDeveloperSigningCredential();
+    {
+        options.EmitStaticAudienceClaim = true;
+        
+        options.Events.RaiseErrorEvents = true;
+        options.Events.RaiseInformationEvents = true;
+        options.Events.RaiseFailureEvents = true;
+        options.Events.RaiseSuccessEvents = true;
+    })
+    .AddInMemoryIdentityResources(new List<IdentityResource>())
+    .AddInMemoryApiScopes(new List<ApiScope>())
+    .AddInMemoryApiResources(new List<ApiResource>())
+    .AddInMemoryClients(new List<Client>());
 
 builder.Services.AddRazorPages();
 

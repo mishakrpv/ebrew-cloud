@@ -12,7 +12,7 @@ using eBrew.Cloud.Identity.API.Data;
 namespace eBrew.Cloud.Identity.API.Data.Migrations
 {
     [DbContext(typeof(IdentityContext))]
-    [Migration("20240324001419_Initial")]
+    [Migration("20240326172230_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -104,12 +104,10 @@ namespace eBrew.Cloud.Identity.API.Data.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("character varying(128)");
+                        .HasColumnType("text");
 
                     b.Property<string>("ProviderKey")
-                        .HasMaxLength(128)
-                        .HasColumnType("character varying(128)");
+                        .HasColumnType("text");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("text");
@@ -146,12 +144,10 @@ namespace eBrew.Cloud.Identity.API.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("character varying(128)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(128)
-                        .HasColumnType("character varying(128)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Value")
                         .HasColumnType("text");

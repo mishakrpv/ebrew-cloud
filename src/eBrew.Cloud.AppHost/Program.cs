@@ -1,5 +1,9 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
+// var cache = builder.AddRedis("cache");
+//
+// var eventBus = builder.AddRabbitMQ("eventbus");
+
 var postgres = builder.AddPostgresContainer("postgres");
 
 var keyManagementDb = postgres.AddDatabase("keymanagementdb");
@@ -12,10 +16,6 @@ var identityApi = builder.AddProject<Projects.eBrew_Cloud_Identity_API>("identit
 
 var idpHttps = identityApi.GetEndpoint("https");
 
-var cache = builder.AddRedis("cache");
-
-var eventBus = builder.AddRabbitMQ("eventbus");
-
 var keyManagementApi = builder.AddProject<Projects.eBrew_Cloud_KeyManagement_API>("keymanagement")
     .WithReference(keyManagementDb)
     .WithEnvironment("Identity__Url", idpHttps);
@@ -26,7 +26,7 @@ var storageApi = builder.AddProject<Projects.eBrew_Cloud_Storage_API>("storageap
 
 var webApp = builder.AddProject<Projects.eBrew_Cloud_WebApp>("webapp")
     .WithReference(keyManagementApi)
-    .WithReference(eventBus)
+    // .WithReference(eventBus)
     .WithLaunchProfile("https");
 
 builder.Build().Run();
